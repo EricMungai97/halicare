@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  name            String?
+  email           String?   @unique
+  emailVerified   DateTime?
+  hashedPassword  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  shifts          Shift[]
+  healthcareProfessional HealthcareProfessional[]
+}
+
+model FacilityUser {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  username        String?   @unique
+  email           String?   
+  emailVerified   DateTime?
+  hashedPassword  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  facility        HealthcareFacility[]
+}
+// Define a model for healthcare facilities
+model HealthcareFacility {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String  @db.ObjectId
+  name       String
+  location   String
+  overview   String
+  shifts     Shift[]
+
+  user FacilityUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Define a model for healthcare professionals (doctors, nurses, etc.)
+model HealthcareProfessional {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String  @db.ObjectId
+  firstName  String
+  lastName   String
+  title      String
+ 
+  // Add any additional information about professionals here
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Define a model for shifts
+model Shift {
+  id                 String @id @default(auto()) @map("_id") @db.ObjectId
+  userId             String  @db.ObjectId
+  facilityId         String  @db.ObjectId
+  startTime          DateTime
+  endTime            DateTime
+  healthcareFacility HealthcareFacility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+ 
+  // Add any other shift-related information here
+}
