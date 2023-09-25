@@ -8,40 +8,40 @@ import prisma from "@/app/libs/prismadb"
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
-    CredentialsProvider({
-      id: 'staff',
-      name: 'credentials',
-      credentials: {
-        email: { label: 'email', type: 'text' },
-        password: { label: 'password', type: 'password' }
-      },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error('Invalid credentials');
-        }
+    // CredentialsProvider({
+    //   id: 'staff',
+    //   name: 'credentials',
+    //   credentials: {
+    //     email: { label: 'email', type: 'text' },
+    //     password: { label: 'password', type: 'password' }
+    //   },
+    //   async authorize(credentials) {
+    //     if (!credentials?.email || !credentials?.password) {
+    //       throw new Error('Invalid credentials');
+    //     }
 
-        const user = await prisma.user.findUnique({
-          where: {
-            email: credentials.email
-          }
-        });
+    //     const user = await prisma.user.findUnique({
+    //       where: {
+    //         email: credentials.email
+    //       }
+    //     });
 
-        if (!user || !user?.hashedPassword) {
-          throw new Error('Invalid credentials');
-        }
+    //     if (!user || !user?.hashedPassword) {
+    //       throw new Error('Invalid credentials');
+    //     }
 
-        const isCorrectPassword = await bcrypt.compare(
-          credentials.password,
-          user.hashedPassword
-        );
+    //     const isCorrectPassword = await bcrypt.compare(
+    //       credentials.password,
+    //       user.hashedPassword
+    //     );
 
-        if (!isCorrectPassword) {
-          throw new Error('Invalid credentials');
-        }
+    //     if (!isCorrectPassword) {
+    //       throw new Error('Invalid credentials');
+    //     }
 
-        return user;
-      }
-    }),
+    //     return user;
+    //   }
+    // }),
     CredentialsProvider({
       id: 'facility',
       name: 'credentials',
@@ -54,19 +54,19 @@ export const authOptions: AuthOptions = {
           throw new Error('Invalid credentials');
         }
 
-        const fuser = await prisma.facilityUser.findUnique({
+        const user = await prisma.facilityUser.findUnique({
           where: {
             username: credentials.username
           }
         });
 
-        if (!fuser || !fuser?.hashedPassword) {
+        if (!user || !user?.hashedPassword) {
           throw new Error('Invalid credentials');
         }
 
         const isCorrectPassword = await bcrypt.compare(
           credentials.password,
-          fuser.hashedPassword
+          user.hashedPassword
         );
    
 
@@ -74,7 +74,10 @@ export const authOptions: AuthOptions = {
           throw new Error('Invalid credentials');
         }
 
-        return fuser;
+        return {
+          email: user.email,
+          name: user.username,
+        };
       }
     }),
   ],

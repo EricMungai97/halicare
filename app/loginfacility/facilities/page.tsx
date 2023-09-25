@@ -14,7 +14,7 @@ interface IFormInput {
 export default function Login() {
   const { register, handleSubmit } = useForm<IFormInput>();
   const { data:session, status } = useSession();
-  console.log(session, status)
+  console.log(session)
   const router = useRouter();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data: IFormInput) => {
@@ -30,7 +30,7 @@ export default function Login() {
     if (result?.error) {
         toast.error('Invalid credentials.');
       } else {
-        router.push('/');
+        router.push('/loginfacility/facility');
       }
     };
   
