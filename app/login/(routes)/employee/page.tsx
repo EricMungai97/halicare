@@ -20,7 +20,7 @@ export default function Employee() {
       <div>
         <StaffNavbar />
         <div className="bg-orange-400 p-6">
-          <div>Hi, {session?.user.email} </div>
+          <div>Hi, {session?.user?.email} </div>
           <div className="bg-white border border-gray-100 rounded-xl p-4 grid grid-cols-2 gap-2 mr-20 ml-20 text-white ">
             <div className="bg-sky-900 border rounded-xl p-2">
               <p>Your shifts</p>

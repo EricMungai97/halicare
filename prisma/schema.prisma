@@ -12,7 +12,6 @@ datasource db {
 
 model User {
   id              String @id @default(auto()) @map("_id") @db.ObjectId
-  name            String?
   email           String?   @unique
   emailVerified   DateTime?
   hashedPassword  String?
@@ -52,6 +51,12 @@ model HealthcareProfessional {
   firstName  String
   lastName   String
   title      String
+  phone      String
+  address    String
+  dateOfBirth String
+  language  String
+  emergencyContactName String
+  emergencyContactPhone String
  
   // Add any additional information about professionals here
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -62,10 +67,13 @@ model Shift {
   id                 String @id @default(auto()) @map("_id") @db.ObjectId
   userId             String  @db.ObjectId
   facilityId         String  @db.ObjectId
-  startTime          DateTime
-  endTime            DateTime
+  profession          String 
+  date               String
+  startTime          String
+  endTime            String
   healthcareFacility HealthcareFacility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
  
   // Add any other shift-related information here
 }
