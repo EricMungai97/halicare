@@ -2,7 +2,7 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import axios, {AxiosError} from 'axios';
+import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
 interface IFormInput {

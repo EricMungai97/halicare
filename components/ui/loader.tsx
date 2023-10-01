@@ -1,6 +1,6 @@
 "use client";
 
-import { CircleLoader } from "react-spinners";
+import { CircleLoader, PuffLoader } from "react-spinners";
 
 const Loader = () => {
     return (
@@ -11,7 +11,7 @@ const Loader = () => {
         flex-col
         justify-center
         items-center">
-            <CircleLoader
+            <PuffLoader
                 size={100}
                 color={"purple"}
             />

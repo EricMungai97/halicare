@@ -41,6 +41,7 @@ export const authOptions: AuthOptions = {
 
         return user;
       }
+      
     }),
     CredentialsProvider({
       id: 'facility',
@@ -81,6 +82,30 @@ export const authOptions: AuthOptions = {
       }
     }),
   ],
+  callbacks: {
+    async jwt({ token, user, session }) {
+      console.log("jwt callback", { token, user, session });
+      if (user) {
+        return {
+        ...token,
+        id: user.id,
+      };
+    }
+     return token;
+  },
+  async session({ session, token, user }) {
+    console.log("session callback", { session, token, user });
+    return {
+      ...session,
+      user: {
+        ...session.user,
+      id: token.id,
+      
+    }
+    }
+  },
+},
+
   pages: {
     signIn: '/',
   },
