@@ -39,7 +39,7 @@ const MainNav = () => {
                   </div>
                 )}
               </div>
-              <Link href="/register"><p>Register</p></Link>
+              <Link href="/registerfacility"><p>Register</p></Link>
               <Link href="/contact" className="border-solid border-2 text-sky-900 hover:bg-sky-900 rounded-full border-sky-900 hover:text-white p-1"><p>Contact Us</p></Link>
             </div>
           </ul>

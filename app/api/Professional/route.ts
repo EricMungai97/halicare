@@ -19,6 +19,6 @@ export async function POST(
   const healthcareProfessional = await prisma.healthcareProfessional.findFirst({
       where: { userId: id }
     });
-
+  console.log(healthcareProfessional);
     return NextResponse.json(healthcareProfessional);
 }

@@ -2,6 +2,14 @@ import prisma from '@/app/libs/prismadb';
 import { NextResponse } from 'next/server';
 import getCurrentUser from "@/app/actions/getCurrentFacilityUser";
 
+async function getFacilityByFacilityUser(userId: string) {
+    return await prisma.healthcareFacility.findFirst({
+        where: {
+            userId: userId
+        }
+    });
+}
+
 export async function POST(
     request: Request,
 ) {
@@ -11,6 +19,11 @@ export async function POST(
 
     if (!currentUser) {
         return NextResponse.error();
+      }
+
+      const currentFacility = await getFacilityByFacilityUser(currentUser.id);
+      if (!currentFacility) {
+          return NextResponse.error( );
       }
 
     const {
@@ -27,7 +40,7 @@ export async function POST(
             profession,
             date,
             userId: currentUser.id,
-            facilityId: currentUser.id
+            facilityId: currentFacility.id,
         },
     });
 

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"; // Corrected the import
 import { FaUserMd, FaDollarSign, FaHeadset } from "react-icons/fa";
 import { Gothic_A1, Inter } from "next/font/google";
 import { Button } from "@/components/ui/button";
+import LottieAnimation from "@/components/ui/LottieAnimation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,14 +17,17 @@ export default function Page() {
 
   return (
     <div>
-      <section >
-        <div className="bg-orange-500 p-20">
+      <section className="bg-orange-500 grid grid-cols-2 " >
+        <div className=" p-20">
           <p className="text-5xl text-white font-bold  ml-5">
             Simplifying Nurse Staffing
           </p>
           <p className="text-xl text-white ml-5">
             Linking CNA, LPN, and RN Professionals with AllShifts®
           </p>
+        </div>
+        <div>
+          <LottieAnimation />
         </div>
       </section>
       <section className="grid lg:grid-cols-2 sm:max-md:grid-cols-1 gap-3 p-2">
