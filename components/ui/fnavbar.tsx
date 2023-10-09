@@ -4,8 +4,8 @@ import React from 'react'
 export default function FacilityNavbar() {
   return (
     <>
-      <nav className='bg-orange-400 flex justify-between text-white shadow-xl p-3'>
-          <Link href='/home'>Home</Link>
+      <nav className=' flex justify-between text-sky-900 shadow-xl p-3'>
+          <Link href='/loginfacility/facility'>Home</Link>
           <Link href='/loginfacility/shifts'>Shifts</Link>
           <Link href='/explore'>Staff</Link>
       

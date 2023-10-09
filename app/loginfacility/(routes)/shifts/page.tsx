@@ -41,55 +41,61 @@ export default function Facility() {
   return (
     <div>
         <FacilityNavbar />
-        <div>
+        <div className='bg-sky-900 py-8 w-full text-center font-extrabold text-white text-xl'>
             <h1>Welcome, {session?.user?.name}</h1>
+        </div>
+        <div className="text-sky-900 text-3xl font-bold pb-5">
             <h2>Fill in the form to create shift</h2>
+          
         </div>
         <div>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-2 gap-4'>
             <div>
               <label className='block'>
-                <span>StartTime</span>
+                <span className="font-bold text-gray-400">StartTime</span>
                 <input
                   {...register("startTime", { required: true })}
                   type="text"
-                  className=''
+                  className="font-bold border border-black mt-1 block w-full py-4"
                 />
               </label>
             </div>
             <div>
             <label className='block'>
-                <span>EndTime</span>
+                <span className="font-bold text-gray-400">EndTime</span>
                 <input
                   {...register("endTime", { required: true })}
                   type="text"
-                  className=''
+                  className="font-bold border border-black mt-1 block w-full py-4"
                 />
               </label>
             </div>
             <div>
             <label className='block'>
-                <span>Profession</span>
+                <span className="font-bold text-gray-400">Profession</span>
                 <input
                   {...register("profession", { required: true })}
                   type="text"
-                  className=''
+                  className="font-bold border border-black mt-1 block w-full py-4"
                 />
               </label>
             </div>
             <div>
             <label className='block'>
-                <span>Date</span>
+                <span className="font-bold text-gray-400">Date</span>
                 <input
                   {...register("date", { required: true })}
                   type='datetime-local'
-                  className=''
+                  className="font-bold border border-black mt-1 block w-full py-4"
                 />
               </label>
             </div>
-            <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded-md">
+            <div className="flex justify-center items-center col-span-2">
+
+            <button type="submit" className="border p-2 bg-sky-900 text-white rounded-xl">
             Submit
           </button>
+            </div>
           </form>
         </div>
     </div>

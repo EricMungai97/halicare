@@ -23,6 +23,7 @@ interface IFormInput {
   emergencyContactPhone: string;
 }
 
+
 export default function Employee() {
   const [healthcareProfessional, setHealthcareProfessional] = useState(null);
   const [loading, setLoading] = useState(true);
