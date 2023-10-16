@@ -20,5 +20,5 @@ export async function POST(
       where: { userId: id }
     });
   console.log(healthcareProfessional);
-    return NextResponse.json(healthcareProfessional);
+  return NextResponse.json(healthcareProfessional);
 }
