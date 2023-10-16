@@ -10,9 +10,9 @@ export async function POST(request: Request) {
   }
 
   const body = await request.json();
-  console.log('body',body);
+
   const shiftId  = body; // Assume you pass userId as a query parameter
-  console.log("shiftid", shiftId);
+  
   const updatedShift = await prisma.shift.update({
     where: {
       id: shiftId,

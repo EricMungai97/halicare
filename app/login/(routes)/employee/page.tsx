@@ -36,6 +36,7 @@ export default function Employee() {
 
   useEffect(() => {
     const id = session?.user?.id;
+    
     console.log(id);
     (async () => {
       try {
@@ -80,15 +81,17 @@ export default function Employee() {
       <div>
         <StaffNavbar />
         <div className="bg-orange-400 p-6">
-          <div>Hi, { healthcareProfessional?.firstName} </div>
-          <div className="bg-white border border-gray-100 rounded-xl p-4 grid grid-cols-2 gap-2 mr-20 ml-20 text-white ">
-            <div className="bg-sky-900 border rounded-xl p-2">
+          <div className="text-white  text-2xl font-bold ">Hi, { healthcareProfessional?.firstName} </div>
+        <div className="grid grid-cols-2 gap-2">
+
+            <div className="flex justify-center bg-sky-900 text-white text-md border rounded-xl p-2">
               <p>Your shifts</p>
             </div>
-            <div className="bg-sky-900 border rounded-xl p-2">
+            <div className="bg-sky-900 text-white flex justify-center border rounded-xl p-2">
               <p>Available shifts</p>
             </div>
-          </div>
+        </div>
+          
         </div>
         </div>
     )} else {

@@ -23,7 +23,7 @@ export default function Page() {
             Simplifying Nurse Staffing
           </p>
           <p className="text-xl text-white ml-5">
-            Linking CNA, LPN, and RN Professionals with AllShifts®
+            Linking CNA, LPN, and RN Professionals with BestShifts
           </p>
         </div>
         <div>
@@ -36,7 +36,9 @@ export default function Page() {
           <p className="text-white">
             Rapidly Access More Opportunities at Top-of-the-Line Pay Rates.
           </p>
-          <Button className="border rounded-xl text-white bg-orange-500">
+          <Button 
+          onClick={goToContact}
+          className="border rounded-xl text-white bg-orange-500">
             Get Started
           </Button>
         </div>
