@@ -37,7 +37,7 @@ interface healthcareProfessional {
 }
 
 export default function Employee() {
-  const [healthcareProfessional, setHealthcareProfessional] = useState<HealthcareProfessional |null>(null);
+  const [healthcareProfessional, setHealthcareProfessional] = useState<healthcareProfessional |null>(null);
   const [loading, setLoading] = useState(true);
   const { data: session, status } = useSession();
   useEffect(() => {
@@ -70,7 +70,8 @@ export default function Employee() {
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = async (data: IFormInput) => {
     try {
-      const res = await axios.post('/api/Profile', data);
+      const res = await axios.post('/api/Profile', JSON.stringify(data),{
+        headers: { 'Content-Type': 'application/json' },});
       if (res.status === 200) {
         toast.success('Profile created');
      

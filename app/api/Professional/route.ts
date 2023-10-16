@@ -1,10 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/app/libs/prismadb'; // Adjust the import to your prisma client location
+import { NextResponse } from 'next/server';
 
-export async function POST(req:Request, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+export async function POST(req:Request) {
 
   const body = await req.json();
   console.log(body);
@@ -15,7 +13,7 @@ export async function POST(req:Request, res: NextApiResponse) {
   });
   console.log(healthcareProfessional);
   
-  res.json(healthcareProfessional);
+  return NextResponse.json(healthcareProfessional);
 }
 
 
