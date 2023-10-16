@@ -65,14 +65,14 @@ model HealthcareProfessional {
 // Define a model for shifts
 model Shift {
   id                 String @id @default(auto()) @map("_id") @db.ObjectId
-  userId             String  @db.ObjectId
+  userId             String?  @db.ObjectId
   facilityId         String  @db.ObjectId
   profession          String 
   date               String
   startTime          String
   endTime            String
   healthcareFacility HealthcareFacility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
   
  
   // Add any other shift-related information here

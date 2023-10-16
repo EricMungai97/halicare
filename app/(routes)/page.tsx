@@ -26,7 +26,7 @@ export default function Page() {
             Linking CNA, LPN, and RN Professionals with BestShifts
           </p>
         </div>
-        <div>
+        <div className="hidden md:block">
           <LottieAnimation />
         </div>
       </section>

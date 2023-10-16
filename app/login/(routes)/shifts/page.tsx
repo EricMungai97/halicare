@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import axios from "axios";
 import Loader from "@/components/ui/loader";
 import StaffNavbar from "@/components/ui/2navbar";
+import toast from "react-hot-toast";
 
 type HealthcareFacility = {
     name: string;
@@ -41,6 +42,18 @@ const ShiftsPage: React.FC = () => {
               <Loader />
             </div>
           );
+        
+        const withdrawShift = async (shiftid: string) => {
+          try {
+            const res= await axios.post('/api/withdrawShift', JSON.stringify(shiftid));
+            if (res.status === 200) {
+              toast.success('Shift withdrawn successfully');
+            }
+            setShifts(shifts.filter((shift) => shift.id !== shiftid));
+          } catch (error) {
+            console.error("Error withdrawing shift:", error);
+          }
+        }
     return (
         <div>
         <StaffNavbar />
@@ -70,6 +83,9 @@ const ShiftsPage: React.FC = () => {
                 <p>
                   <span className="font-bold">Facility Overview:</span> {shift.healthcareFacility.overview}
                 </p>
+                <button 
+                   className="bg-sky-900 text-white px-4 py-2 rounded-xl mt-4"
+                  onClick={() => withdrawShift(shift.id)}>Withdraw</button>
               </div>
             ))}
           </div>
