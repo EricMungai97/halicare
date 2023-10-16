@@ -9,6 +9,7 @@ import StaffNavbar from "@/components/ui/2navbar";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Loader from "@/components/ui/loader";
+import { HealthcareProfessional } from "@prisma/client";
 
 
 interface IFormInput {
@@ -23,9 +24,20 @@ interface IFormInput {
   emergencyContactPhone: string;
 }
 
+interface healthcareProfessional {
+  firstName: string;
+  lastName: string;
+  title: string;
+  phone: string;
+  address: string;
+  dateOfBirth: string;
+  language: string;
+  emergencyContactName: string;
+  emergencyContactPhone: string;
+}
 
 export default function Employee() {
-  const [healthcareProfessional, setHealthcareProfessional] = useState(null);
+  const [healthcareProfessional, setHealthcareProfessional] = useState<HealthcareProfessional |null>(null);
   const [loading, setLoading] = useState(true);
   const { data: session, status } = useSession();
   useEffect(() => {
