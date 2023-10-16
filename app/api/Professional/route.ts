@@ -4,7 +4,8 @@ import { NextResponse } from 'next/server';
 
 
 export async function POST(
-  req: Request,) {
+  req: Request,
+  res: Response,) {
   if (req.method !== 'POST') {
     return ({ error: 'Method not allowed' });
   }
@@ -18,5 +19,5 @@ export async function POST(
       where: { userId: id }
     });
   console.log(healthcareProfessional);
-  return NextResponse.json(healthcareProfessional);
+  return Response.json(healthcareProfessional);
 }
