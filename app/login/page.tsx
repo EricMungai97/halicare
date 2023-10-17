@@ -3,7 +3,7 @@
 import { signIn, useSession } from "next-auth/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React from "react";
 import toast from "react-hot-toast";
 
 interface IFormInput {
