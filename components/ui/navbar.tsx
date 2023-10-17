@@ -1,4 +1,4 @@
-import Link from "next/link";
+"use client";
 import MainNav from "./main-nav";
 
 const Navbar: React.FC = () => {

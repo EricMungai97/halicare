@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { FaHeart, FaHandshake, FaSmile, FaClock, FaCheck, FaRegLightbulb, FaGlobeAmericas, FaUserFriends, FaThumbsUp, FaShieldAlt } from 'react-icons/fa';
 
