@@ -7,7 +7,7 @@ export default function StaffNavbar() {
     <>
       <nav className='text-sky-900 flex justify-between shadow-xl p-3'>
           <Link href='/login/employee'>Home</Link>
-          <Link href='/login/Shifts'>Shifts</Link>
+          <Link href='/login/shifts'>Shifts</Link>
           <Link href='/login/availableShifts'>Available Shifts</Link>
           <Link href='/login/profile'>Profile</Link>
 
