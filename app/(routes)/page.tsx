@@ -1,5 +1,4 @@
 "use client";
-export const dynamic = "force-dyanmic";
 import React from "react";
 import { useRouter } from "next/navigation"; // Corrected the import
 import { FaUserMd, FaDollarSign, FaHeadset } from "react-icons/fa";

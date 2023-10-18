@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import prisma from '@/app/libs/prismadb';
 import { NextResponse } from 'next/server';
 import getCurrentFacilityUser from "@/app/actions/getCurrentFacilityUser";
