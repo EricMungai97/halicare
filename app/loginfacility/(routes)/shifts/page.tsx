@@ -3,10 +3,10 @@
 import StaffNavbar from '@/components/ui/2navbar'
 import FacilityNavbar from '@/components/ui/fnavbar'
 import axios from 'axios';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useForm, SubmitHandler } from "react-hook-form";
-import { getServerSession } from 'next-auth';
+
 import toast from 'react-hot-toast';
 
 interface FacilityFormInput {
@@ -17,11 +17,20 @@ interface FacilityFormInput {
 }
 
 export default function Facility() {
+  const { data:session, status } = useSession();
+  console.log(session)
+  useEffect(() => {
+    const id = session?.user?.id;
+    console.log(id);
+  }, [session]);
   const { register, handleSubmit, reset } = useForm<FacilityFormInput>();
   const onSubmit: SubmitHandler<FacilityFormInput> = async (data: FacilityFormInput) => {
     console.log(data);
 
+  
+
     try {
+      const dataWithId = { ...data, id: session?.user?.id };
       const response = await axios.post('/api/Shift', JSON.stringify(data), {
         headers: { 'Content-Type': 'application/json' },
         });
@@ -29,6 +38,12 @@ export default function Facility() {
         toast.success('Shift created successfully');
         console.log('Shift created successfully');
         reset();
+
+        // Send message using Twilio
+        const twilioResponse = await axios.post('/api/sendSMS', JSON.stringify(dataWithId), {
+          headers: { 'Content-Type': 'application/json' },
+        });
+        console.log('Twilio response:', twilioResponse);
       }
     } catch (error) {
       toast.error('Failed to create shift.');
@@ -36,8 +51,7 @@ export default function Facility() {
       
     }
   };
-  const { data:session, status } = useSession();
-  console.log(session)
+
   return (
     <div>
         <FacilityNavbar />
