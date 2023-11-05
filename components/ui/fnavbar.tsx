@@ -7,8 +7,8 @@ export default function FacilityNavbar() {
     <>
       <nav className=' flex justify-between text-sky-900 shadow-xl p-3'>
           <Link href='/loginfacility/facility'>Home</Link>
-          <Link href='/loginfacility/shifts'>Shifts</Link>
-          <Link href='/explore'>Staff</Link>
+          <Link href='/loginfacility/shifts'>Post Shifts</Link>
+          <Link href='/loginfacility/confirmedShifts'>Confirmed shifts</Link>
       
 
       </nav>

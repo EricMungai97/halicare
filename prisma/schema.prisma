@@ -71,6 +71,8 @@ model Shift {
   date               String
   startTime          String
   endTime            String
+  applied           Boolean @default(false)
+  confirmed          Boolean @default(false)
   healthcareFacility HealthcareFacility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
   user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
   

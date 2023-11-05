@@ -42,6 +42,8 @@ export async function POST(request: Request) {
         },
         data: {
             userId: null,
+            confirmed: false,
+            applied: false,
         },
     });
     return NextResponse.json(updateShift);
