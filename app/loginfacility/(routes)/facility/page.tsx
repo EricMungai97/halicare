@@ -7,6 +7,7 @@ import React, { use } from "react";
 import { useSession } from "next-auth/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState, useEffect } from "react";
+import Loader from "@/components/ui/loader";
 
 interface FacilityFormInput {
   name: string;
@@ -16,6 +17,7 @@ interface FacilityFormInput {
 
 export default function Facility() {
   const [facility, setFacility] = useState<FacilityFormInput | null>(null);
+  const [loading, setLoading] = useState(true);
   const { data: session, status } = useSession();
   const { register, handleSubmit, reset } = useForm<FacilityFormInput>();
 
@@ -30,6 +32,8 @@ export default function Facility() {
           .catch((error) => console.error("Error fetching facility", error));
       } catch (error) {
         console.error("Error fetching facility", error);
+      } finally {
+        setLoading(false);
       }
     })();
   }, [session]);
@@ -52,7 +56,7 @@ export default function Facility() {
     }
   };
 
-
+  if (loading) return <Loader />;
   if (facility) {
     return (
       <div>
