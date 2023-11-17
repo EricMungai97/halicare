@@ -13,6 +13,9 @@ export default function Page() {
   const goToContact = () => {
     router.push("/contact");
   };
+  const goToRegsiter = () => {
+    router.push("/register");
+  }
 
   return (
     <div>
@@ -36,7 +39,7 @@ export default function Page() {
             Rapidly Access More Opportunities at Top-of-the-Line Pay Rates.
           </p>
           <Button 
-          onClick={goToContact}
+          onClick={goToRegsiter}
           className="border rounded-xl text-white bg-orange-500">
             Get Started
           </Button>
