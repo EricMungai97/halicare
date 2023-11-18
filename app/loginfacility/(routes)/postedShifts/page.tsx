@@ -5,6 +5,8 @@ import axios from "axios";
 import Loader from "@/components/ui/loader";
 import StaffNavbar from "@/components/ui/2navbar";
 import toast from "react-hot-toast";
+import Facility from "../facility/page";
+import FacilityNavbar from "@/components/ui/fnavbar";
 
 type HealthcareFacility = {
   name: string;
@@ -70,6 +72,7 @@ const AvailableShifts: React.FC = () => {
 
   return (
     <div>
+        <FacilityNavbar />
       <h1 className="text-2xl font-bold mb-4 p-2 text-sky-900">All Shifts</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {shifts.map((shift) => (
