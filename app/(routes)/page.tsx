@@ -19,7 +19,7 @@ export default function Page() {
 
   return (
     <div>
-      <section className="bg-orange-500 grid grid-cols-2 " >
+      <section className="bg-orange-500 grid lg:grid-cols-2 sm:max-md:grid-cols-1 gap-0" >
         <div className=" p-20">
           <p className="text-5xl text-white font-bold  ml-5">
             Simplifying Nurse Staffing
@@ -28,8 +28,8 @@ export default function Page() {
             Linking CNA, LPN, and RN Professionals with BestShifts
           </p>
         </div>
-        <div className="hidden md:block">
-          <LottieAnimation />
+        <div className="">
+          <LottieAnimation/>
         </div>
       </section>
       <section className="grid lg:grid-cols-2 sm:max-md:grid-cols-1 gap-3 p-2">

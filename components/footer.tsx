@@ -13,15 +13,8 @@ export default function Footer() {
       <footer className=''>
         <div className='grid grid-cols-2 px-20 shadow-lg bg-sky-900 pt-10 pb-10'>
           <div className='text-white font-extrabold text-xl'>HALICARE LLC</div>
-          <div className='flex flex-col text-white pb-2'>
-            <Link href="/about">About</Link>
-            <Link href="/careers">Careers</Link>
-            <Link href="/contact">Contact Us</Link>
-          </div>
           <div className='text-gray-400 flex justify-between'>
             <p>© 2023 Halicare LLC - All Rights Reserved</p>
-            <p>Privacy policy</p>
-            <p>Terms of Service</p>
           </div>
         </div>
       </footer>
