@@ -19,7 +19,7 @@ export default function FacilityNavbar() {
         <Link href="/loginfacility/postedShifts">Posted shifts</Link>
         <Link href="/loginfacility/confirmedShifts">Confirmed shifts</Link>
       </nav>
-      <div className="md:hidden flex flex-row justify-between">
+      <div className="md:hidden flex flex-row justify-between shadow-md">
         <p className="font-bold text-sky-900 text-sm">HALICARE </p>
         <button onClick={toggleMenu}>
           {isOpen ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
