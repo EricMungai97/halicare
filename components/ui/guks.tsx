@@ -1,14 +1,14 @@
 "use client";
 import React from 'react';
 import Lottie from 'lottie-react';
-import animationData from '../../public/assets/animation.json';
+import animationData from '../../public/assets/guks.json';
 
 const style = {
     height: 600,
     width: 600,
     };
 
-const LottieAnimation: React.FC = () => {
+const GuksAnimation: React.FC = () => {
   return (
     <div>
       <Lottie animationData={animationData} style={style}/>
@@ -16,4 +16,4 @@ const LottieAnimation: React.FC = () => {
   );
 };
 
-export default LottieAnimation;
+export default GuksAnimation;

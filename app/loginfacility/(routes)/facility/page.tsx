@@ -8,6 +8,11 @@ import { useSession } from "next-auth/react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState, useEffect } from "react";
 import Loader from "@/components/ui/loader";
+import GukaAnimation from "@/components/ui/guka";
+import GrandmaAnimation from "@/components/ui/grandma";
+import LottieAnimation from "@/components/ui/LottieAnimation";
+import GuksAnimation from "@/components/ui/guks";
+import ShoshAnimation from "@/components/ui/shosho";
 
 interface FacilityFormInput {
   name: string;
@@ -63,6 +68,14 @@ export default function Facility() {
            <FacilityNavbar />
       <div className="bg-sky-900 py-8 w-full text-center font-extrabold text-white text-xl">
         <h1>Welcome, {session?.user?.name}</h1>
+      </div>
+      <div className="grid lg:grid-cols-3 justify-center sm:max-sm:grid-cols-1 gap-1">
+        <LottieAnimation />
+        <GukaAnimation />
+        <GrandmaAnimation />
+        <GuksAnimation />
+        <ShoshAnimation />
+
       </div>
       </div>
     );
