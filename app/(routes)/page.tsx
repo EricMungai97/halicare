@@ -5,10 +5,43 @@ import { FaUserMd, FaDollarSign, FaHeadset } from "react-icons/fa";
 import { Gothic_A1, Inter } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import LottieAnimation from "@/components/ui/LottieAnimation";
+import { motion } from "framer-motion";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Page() {
+
+  const cardVariants = {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1, transition: { duration: 1,  } },
+  };
+
+  const secondVariants = {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1, transition: { duration: 1, delay: 0.5 } },
+  };
+  const textVariants = {
+    initial: {
+      x: -500,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        staggerchildren: 0.1,
+      },
+    },
+    scrollButton: {
+        opacity: 0,
+        y: 10,
+        transition: {
+            duration: 2,
+            repeat: Infinity,
+        }
+    }
+  };
   const router = useRouter();
   const goToContact = () => {
     router.push("/contact");
@@ -18,22 +51,22 @@ export default function Page() {
   }
 
   return (
-    <div>
-      <section className="bg-orange-500 grid lg:grid-cols-2 sm:max-md:grid-cols-1 gap-0" >
-        <div className=" p-20">
-          <p className="text-5xl text-white font-bold  ml-5">
+    <div className="bg-white">
+      <motion.div initial="initial" animate="animate" variants={textVariants} className="bg-white grid lg:grid-cols-2 sm:max-md:grid-cols-1 gap-0" >
+        <motion.div variants={textVariants} className=" p-20">
+          <motion.p variants={textVariants} className="text-5xl text-sky-950 font-bold  ml-5" >
             Simplifying Nurse Staffing
-          </p>
-          <p className="text-xl text-white ml-5">
+          </motion.p>
+          <motion.p variants={textVariants} className="text-xl text-sky-950 ml-5">
             Linking CNA, LPN, and RN Professionals with BestShifts
-          </p>
-        </div>
-        <div className="">
+          </motion.p>
+        </motion.div>
+        <motion.div variants={textVariants}>
           <LottieAnimation/>
-        </div>
-      </section>
-      <section className="grid lg:grid-cols-2 sm:max-md:grid-cols-1 gap-3 p-2">
-        <div className="border rounded-xl p-12 bg-sky-900 shadow-md">
+        </motion.div>
+      </motion.div>
+      <motion.div variants={cardVariants} initial="initial" animate="animate" className="grid lg:grid-cols-2 sm:max-md:grid-cols-1 gap-8 p-2 mx-8">
+        <motion.div variants={cardVariants} initial="initial" animate="animate" className="border rounded-xl p-12 bg-sky-950 shadow-md transition-all hover:scale-150 hover:bg-cyan-900 hover:border-sky-100 hover:border-4">
           <h2 className="text-white font-bold text-xl">In Need of Shifts?</h2>
           <p className="text-white">
             Rapidly Access More Opportunities at Top-of-the-Line Pay Rates.
@@ -43,8 +76,8 @@ export default function Page() {
           className="border rounded-xl text-white bg-orange-500">
             Get Started
           </Button>
-        </div>
-        <div className="border rounded-xl p-12 bg-sky-900 shadow-md">
+        </motion.div>
+        <motion.div variants={secondVariants} initial="initial" animate="animate" className="border rounded-xl p-12 bg-sky-950 shadow-md transition-all hover:bg-cyan-900 hover:scale-150 hover:border-sky-100 hover:border-4">
           <h2 className="text-white font-bold text-xl">
             Urgently seeking Staff?
           </h2>
@@ -57,8 +90,8 @@ export default function Page() {
           >
             Find Staff
           </Button>
-        </div>
-      </section>
+        </motion.div>
+      </motion.div>
 
       <section className="bg-white text-sky-900 py-12">
         <div className="container mx-auto text-center">
@@ -114,7 +147,7 @@ export default function Page() {
           us, click on Get Started below to begin.
         </p>
         <button
-          className="border rounded-xl p-4 md:p-6 bg-sky-900 text-white font-bold text-lg md:text-xl mt-5 mb-5 hover:bg-white hover:text-sky-900"
+          className="border rounded-xl p-4 md:p-6 bg-sky-950 text-white font-bold text-lg md:text-xl mt-5 mb-5 hover:bg-white hover:text-sky-900"
           onClick={goToContact}
         >
           Get Started
