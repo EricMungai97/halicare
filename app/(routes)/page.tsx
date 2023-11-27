@@ -51,8 +51,8 @@ export default function Page() {
   }
 
   return (
-    <div className="bg-white">
-      <motion.div initial="initial" animate="animate" variants={textVariants} className="bg-white grid lg:grid-cols-2 sm:max-md:grid-cols-1 gap-0" >
+    <div className="bg-sky-100">
+      <motion.div initial="initial" animate="animate" variants={textVariants} className="bg-sky-100 grid lg:grid-cols-2 sm:max-md:grid-cols-1 gap-0" >
         <motion.div variants={textVariants} className=" p-20">
           <motion.p variants={textVariants} className="text-5xl text-sky-950 font-bold  ml-5" >
             Simplifying Nurse Staffing

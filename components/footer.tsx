@@ -11,9 +11,8 @@ export default function Footer() {
         </svg>
       </div>
       <footer className=''>
-        <div className='grid grid-cols-2 px-20 shadow-lg bg-sky-900 pt-10 pb-10'>
-          <div className='text-white font-extrabold text-xl'>HALICARE LLC</div>
-          <div className='text-gray-400 flex justify-between'>
+        <div className=' px-20 shadow-lg bg-sky-900 pt-10 pb-10'>
+          <div className='text-gray-400 text-center'>
             <p>© 2023 Halicare LLC - All Rights Reserved</p>
           </div>
         </div>
