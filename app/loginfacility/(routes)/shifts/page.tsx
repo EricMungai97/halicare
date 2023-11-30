@@ -63,7 +63,7 @@ export default function Facility() {
           
         </div>
         <div>
-          <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-2 gap-4'>
+          <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-2 gap-4 p-4'>
             <div>
               <label className='block'>
                 <span className="font-bold text-gray-400">StartTime</span>

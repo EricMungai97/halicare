@@ -10,7 +10,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Loader from "@/components/ui/loader";
 import { HealthcareProfessional } from "@prisma/client";
-
+import { useShift } from "@/hooks/use-shift";
+import { useAvailable } from "@/hooks/use-available";
 
 interface IFormInput {
   firstName: string;
@@ -37,6 +38,8 @@ interface healthcareProfessional {
 }
 
 export default function Employee() {
+  const shifts = useShift();
+  const availableShifts = useAvailable();
   const [healthcareProfessional, setHealthcareProfessional] = useState<healthcareProfessional |null>(null);
   const [loading, setLoading] = useState(true);
   const { data: session, status } = useSession();
@@ -97,10 +100,10 @@ export default function Employee() {
           <div className="text-white  text-2xl font-bold ">Hi, { healthcareProfessional?.firstName} </div>
         <div className="grid grid-cols-2 gap-2">
 
-            <div className="flex justify-center bg-sky-900 text-white text-md border rounded-xl p-2">
-              <p>Your shifts</p>
+            <div onClick={shifts.onOpen} className="flex justify-center bg-sky-900 text-white text-md border rounded-xl p-2">
+              <p >Your shifts</p>
             </div>
-            <div className="bg-sky-900 text-white flex justify-center border rounded-xl p-2">
+            <div onClick={availableShifts.onOpen} className="bg-sky-900 text-white flex justify-center border rounded-xl p-2">
               <p>Available shifts</p>
             </div>
         </div>
