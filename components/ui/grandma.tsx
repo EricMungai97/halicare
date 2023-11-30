@@ -4,8 +4,8 @@ import Lottie from "lottie-react";
 import animationData from "../../public/assets/grandma.json";
 
 const style = {
-  height: "50vw", // 50% of the viewport width
-  width: "50vw", // 50% of the viewport width
+  height: "70vw", // 50% of the viewport width
+  width: "70vw", // 50% of the viewport width
   maxWidth: "600px", // max size to prevent it from becoming too big
   maxHeight: "600px", // max size to prevent it from becoming too big
 };

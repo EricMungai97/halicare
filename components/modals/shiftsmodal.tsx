@@ -39,14 +39,6 @@ export const ShiftsModal = () => {
   }, []);
   const shifts = useShift();
 
-  if (loading) {
-    return (
-      <div>
-        <Loader />
-      </div>
-    );
-  }
-
   return (
     <Dialog open={shifts.isOpen} onOpenChange={shifts.onClose}>
       <DialogContent>

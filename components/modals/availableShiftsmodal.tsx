@@ -9,7 +9,6 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAvailable } from "@/hooks/use-available";
-import Loader from "@/components/ui/loader";
 
 
 type HealthcareFacility = {
@@ -31,31 +30,20 @@ type Shift = {
 
 export const AvailableModal = () => {
     const [shefts, setShefts] = useState<Shift[]>([]);
-    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const fetchShifts = async () => {
           try {
             const response = await axios.get("/api/getShifts");
             setShefts(response.data);
-           
           } catch (error) {
             console.error("Error fetching shifts:", error);
-            } finally {
-                setLoading(false);
-              }
+            }
         };
     
         fetchShifts();
       }, [shefts]);
 
   const shifts = useAvailable();
-
-  if (loading)
-  return (
-    <div>
-      <Loader />
-    </div>
-  );
 
   return (
     <Dialog open={shifts.isOpen} onOpenChange={shifts.onClose}>
