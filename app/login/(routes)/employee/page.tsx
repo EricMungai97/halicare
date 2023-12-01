@@ -91,10 +91,9 @@ export default function Employee() {
   );
 
 
-  if (healthcareProfessional) {
     return (
-
-      <div>
+      healthcareProfessional ? (
+        <div>
         <StaffNavbar />
         <div className="bg-orange-400 p-6">
           <div className="text-white  text-2xl font-bold ">Hi, { healthcareProfessional?.firstName} </div>
@@ -110,8 +109,7 @@ export default function Employee() {
           
         </div>
         </div>
-    )} else {
-          return (
+      ) : (
         <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
@@ -246,6 +244,6 @@ export default function Employee() {
         </form>
         </div>
     
+      )
     );
   }
-}

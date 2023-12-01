@@ -25,7 +25,6 @@ type Shift = {
 
 export const ShiftsModal = () => {
   const [shefts, setShefts] = useState<Shift[]>([]);
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchShifts = async () => {
       try {
@@ -36,7 +35,7 @@ export const ShiftsModal = () => {
       }
     };
     fetchShifts();
-  }, []);
+  }, [shefts]);
   const shifts = useShift();
 
   return (
