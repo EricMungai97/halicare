@@ -68,7 +68,7 @@ export default function Employee() {
     return () => {
       setHealthcareProfessional(null);
     }
-  }, [session]);
+  }, [session, healthcareProfessional]);
 
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = async (data: IFormInput) => {
