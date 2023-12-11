@@ -35,7 +35,7 @@ export const ShiftsModal = () => {
       }
     };
     fetchShifts();
-  }, [shefts]);
+  }, []);
   const shifts = useShift();
 
   return (

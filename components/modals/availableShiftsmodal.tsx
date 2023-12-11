@@ -41,7 +41,7 @@ export const AvailableModal = () => {
         };
     
         fetchShifts();
-      }, [shefts]);
+      }, []);
 
   const shifts = useAvailable();
 
