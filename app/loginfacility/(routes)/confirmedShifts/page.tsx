@@ -90,6 +90,12 @@ const AvailableShifts: React.FC = () => {
             <p>
               <span className="font-bold">Facility Overview:</span> {shift.healthcareFacility.overview}
             </p>
+            <p>
+              <span className='font-bold'>Professional:</span> {shift.healthcareProfessional.firstName} {shift.healthcareProfessional.lastName}
+            </p>
+            <p>
+              <span className='font-bold'>Professional Phone:</span> {shift.healthcareProfessional.phone}
+            </p>
           
           </div>
         ))}
