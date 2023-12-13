@@ -17,16 +17,29 @@ type HealthcareFacility = {
     overview: string;
   };
 
+type HealthcareProfessional = {
+  firstName: string;
+  lastName: string;
+  title: string;
+  phone: string;
+  address: string;
+  dateOfBirth: string;
+  language: string;
+  emergencyContactName: string;
+  emergencyContactPhone: string;
+}
+
 type Shift = {
-    id: string;
-    profession: string;
-    date: string;
-    startTime: string;
-    endTime: string;
-    healthcareFacility: HealthcareFacility;
-    confirmed: boolean;
-    applied: boolean;
-  };
+  id: string;
+  profession: string;
+  date: string;
+  startTime: string;
+  endTime: string;
+  healthcareFacility: HealthcareFacility;
+  confirmed: boolean;
+  applied: boolean;
+  healthcareProfessional: HealthcareProfessional;
+};
 
 export const AvailableModal = () => {
     const [shefts, setShefts] = useState<Shift[]>([]);
