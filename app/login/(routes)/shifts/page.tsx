@@ -12,18 +12,6 @@ type HealthcareFacility = {
   overview: string;
 };
 
-type HealthcareProfessional = {
-  firstName: string;
-  lastName: string;
-  title: string;
-  phone: string;
-  address: string;
-  dateOfBirth: string;
-  language: string;
-  emergencyContactName: string;
-  emergencyContactPhone: string;
-}
-
 type Shift = {
   id: string;
   profession: string;
@@ -33,7 +21,6 @@ type Shift = {
   healthcareFacility: HealthcareFacility;
   confirmed: boolean;
   applied: boolean;
-  healthcareProfessional: HealthcareProfessional;
 };
 
 const ShiftsPage: React.FC = () => {
