@@ -12,18 +12,6 @@ type HealthcareFacility = {
   overview: string;
 }
 
-type HealthcareProfessional = {
-  firstName: string;
-  lastName: string;
-  title: string;
-  phone: string;
-  address: string;
-  dateOfBirth: string;
-  language: string;
-  emergencyContactName: string;
-  emergencyContactPhone: string;
-}
-
 type Shift = {
   id: string;
   profession: string;
@@ -33,7 +21,7 @@ type Shift = {
   healthcareFacility: HealthcareFacility;
   confirmed: boolean;
   applied: boolean;
-  healthcareProfessional: HealthcareProfessional;
+ 
 };
 const AvailableShifts: React.FC = () => {
   const [shifts, setShifts] = useState<Shift[]>([]);
@@ -89,14 +77,7 @@ const AvailableShifts: React.FC = () => {
             </p>
             <p>
               <span className="font-bold">Facility Overview:</span> {shift.healthcareFacility.overview}
-            </p>
-            <p>
-              <span className='font-bold'>Professional:</span> {shift.healthcareProfessional.firstName} {shift.healthcareProfessional.lastName}
-            </p>
-            <p>
-              <span className='font-bold'>Professional Phone:</span> {shift.healthcareProfessional.phone}
-            </p>
-          
+            </p>  
           </div>
         ))}
       </div>
