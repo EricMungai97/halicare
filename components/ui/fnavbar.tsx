@@ -4,10 +4,15 @@ import React from "react";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { signOut } from "next-auth/react";
 
 export default function FacilityNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const handleLogout = async () => {
+    await signOut({}); // Prevent default redirect
+    window.location.href = "/"; // Redirect to homepage
+  };
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -18,6 +23,7 @@ export default function FacilityNavbar() {
         <Link href="/loginfacility/shifts">Post Shifts</Link>
         <Link href="/loginfacility/postedShifts">Posted shifts</Link>
         <Link href="/loginfacility/confirmedShifts">Confirmed shifts</Link>
+        <button onClick={handleLogout}>Sign out</button>
       </nav>
       <div className="md:hidden flex flex-row justify-between shadow-md ">
         <p className="font-bold text-sky-900 text-sm">HALICARE </p>
@@ -36,7 +42,7 @@ export default function FacilityNavbar() {
             <AiOutlineClose size={24} />
           </Button>
         </div>
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col items-center space-y-4">
           <Link
             className="p-2 rounded-md hover:bg-sky-100"
             href="/loginfacility/facility"
@@ -65,6 +71,10 @@ export default function FacilityNavbar() {
           >
             Confirmed shifts
           </Link>
+          <button
+            onClick={handleLogout}
+            className="p-2 rounded-md hover:bg-sky-100"
+            >SignOut</button>
         </div>
       </div>
     </>
