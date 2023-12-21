@@ -1,18 +1,24 @@
 export const dynamic = "force-dynamic";
+
 import prisma from "@/app/libs/prismadb";
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   if (request.method !== "GET") return NextResponse.error();
 
-  const shifts = await prisma.shift.findMany({
+  const confirmedShifts = await prisma.shift.findMany({
     where: {
-      confirmed: true,
+      confirmed: true
     },
     include: {
-      healthcareFacility: true,
-    },
+      user: {
+        include: {
+          healthcareProfessional: true
+        }
+      },
+      healthcareFacility: true
+    }
   });
-  console.log(shifts);
-  return NextResponse.json(shifts);
+  console.log(confirmedShifts);
+  return NextResponse.json(confirmedShifts);
 }
