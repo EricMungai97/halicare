@@ -8,6 +8,7 @@ export async function POST(req:Request) {
   console.log(body);
   const { id } = body; 
 
+
   const facility = await prisma.healthcareFacility.findFirst({
     where: { userId: id }
   });

@@ -124,17 +124,17 @@ export const authOptions: AuthOptions = {
     maxAge: 30 * 24 * 60 * 60, // 30 days in seconds
     updateAge: 24 * 60 * 60, // 24 hours in seconds
   },
-  cookies: {
-    sessionToken: {
-      name: `__Secure-next-auth.session-token`,
-      options: {
-        httpOnly: true,
-        sameSite: 'lax',
-        path: '/',
-        secure: true,
-      },
-    },
-  },
+  // cookies: {
+  //   sessionToken: {
+  //     name: `__Secure-next-auth.session-token`,
+  //     options: {
+  //       httpOnly: true,
+  //       sameSite: 'lax',
+  //       path: '/',
+  //       secure: true,
+  //     },
+  //   },
+  // },
   secret: process.env.NEXTAUTH_SECRET,
 }
 

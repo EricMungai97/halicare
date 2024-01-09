@@ -55,6 +55,7 @@ model HealthcareProfessional {
   address    String
   dateOfBirth String
   language  String
+  approved  Boolean @default(false)
   emergencyContactName String
   emergencyContactPhone String
  

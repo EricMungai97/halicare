@@ -40,10 +40,10 @@ export default function Facility() {
         reset();
 
         // Send message using Twilio
-        const twilioResponse = await axios.post('/api/sendSMS', JSON.stringify(dataWithId), {
-          headers: { 'Content-Type': 'application/json' },
-        });
-        console.log('Twilio response:', twilioResponse);
+        // const twilioResponse = await axios.post('/api/sendSMS', JSON.stringify(dataWithId), {
+        //   headers: { 'Content-Type': 'application/json' },
+        // });
+        // console.log('Twilio response:', twilioResponse);
       }
     } catch (error) {
       toast.error('Failed to create shift.');

@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     },
   });
 
-  if (deletedShift.confirmed === true) {
+  if (deletedShift.confirmed === false) {
     console.log(deletedShift);
     return NextResponse.json(deletedShift);
   }

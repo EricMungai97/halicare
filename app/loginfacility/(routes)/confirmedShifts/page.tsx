@@ -91,12 +91,12 @@ const AvailableShifts: React.FC = () => {
             </p>
             <p>
               <span className="font-bold">Professional: </span>
-              {shift.user.healthcareProfessional[0].firstName}{" "}
-              {shift.user.healthcareProfessional[0].lastName}
+              {shift.user?.healthcareProfessional[0].firstName}{" "}
+              {shift.user?.healthcareProfessional[0].lastName}
             </p>
             <p>
               <span className="font-bold">Phone:</span>{" "}
-              {shift.user.healthcareProfessional[0].phone}
+              {shift.user?.healthcareProfessional[0].phone}
             </p>
           </div>
         ))}

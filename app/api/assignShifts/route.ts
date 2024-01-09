@@ -13,6 +13,18 @@ export async function POST(request: Request) {
   const body = await request.json();
 
   const shiftId  = body; // Assume you pass userId as a query parameter
+
+  const healthcareProfessional = await prisma.healthcareProfessional.findFirst({
+    where: {
+      userId: currentUser.id,
+    },
+  });
+
+  // Check if the HealthcareProfessional is approved
+  if (!healthcareProfessional || !healthcareProfessional.approved) {
+    return new Response("Forbidden: User is not approved to apply for shifts", { status: 403 });
+  }
+
   
   const updatedShift = await prisma.shift.update({
     where: {
@@ -26,4 +38,4 @@ export async function POST(request: Request) {
   console.log(updatedShift);
   return NextResponse.json(updatedShift);
   
-}
+};

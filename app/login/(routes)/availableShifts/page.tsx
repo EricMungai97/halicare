@@ -68,8 +68,13 @@ const AvailableShifts: React.FC = () => {
       if (response.status === 200) {
         toast.success("Shift applied for successfully");
       }
-    } catch (error) {
-      toast.error("Error applying for shift:");
+    } catch (error: any) {
+      if (error.response && error.response.status === 403) {
+        // Handle the not approved case based on the API response
+        toast.error("You are not approved to apply for shifts");
+      } else {
+        toast.error("Error applying for shift");
+      }
     }
   };
 

@@ -3,6 +3,7 @@
 import React from "react";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
+import Router from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useEffect, useState } from "react";
 import StaffNavbar from "@/components/ui/2navbar";
@@ -82,6 +83,7 @@ export default function Employee() {
       });
       if (res.status === 200) {
         toast.success("Profile created");
+        setHealthcareProfessional(res.data);
       }
     } catch (error: any) {
       toast.error(error);
@@ -119,137 +121,137 @@ export default function Employee() {
       </div>
     </div>
   ) : (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-4">
+    <div className="max-w-lg mx-auto my-10 p-8 rounded-xl shadow-lg bg-white sm:p-10 md:max-w-2xl lg:max-w-3xl">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <div>
           <label
             htmlFor="firstName"
-            className="block text-sm font-medium text-gray-600"
+            className="block text-sm font-semibold text-gray-700"
           >
             FirstName
           </label>
           <input
             type="text"
             {...register("firstName")}
-            className="mt-1 p-2 w-full rounded-md border"
+            className="mt-1 p-2 w-full rounded-md border focus:border-indigo-500 focus:ring-indigo-500"
             required
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
             htmlFor="lastName"
-            className="block text-sm font-medium text-gray-600"
+            className="block text-sm font-semibold text-gray-700"
           >
             LastName
           </label>
           <input
             type="text"
             {...register("lastName")}
-            className="mt-1 p-2 w-full rounded-md border"
+            className="mt-1 p-2 w-full rounded-md border focus:border-indigo-500 focus:ring-indigo-500"
             required
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
             htmlFor="title"
-            className="block text-sm font-medium text-gray-600"
+            className="block text-sm font-semibold text-gray-700"
           >
             Title
           </label>
           <input
             type="text"
             {...register("title")}
-            className="mt-1 p-2 w-full rounded-md border"
+            className="mt-1 p-2 w-full rounded-md border focus:border-indigo-500 focus:ring-indigo-500"
             required
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
             htmlFor="phone"
-            className="block text-sm font-medium text-gray-600"
+            className="block text-sm font-semibold text-gray-700"
           >
             Phone
           </label>
           <input
             type="telephone"
             {...register("phone")}
-            className="mt-1 p-2 w-full rounded-md border"
+            className="mt-1 p-2 w-full rounded-md border focus:border-indigo-500 focus:ring-indigo-500"
             required
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
             htmlFor="address"
-            className="block text-sm font-medium text-gray-600"
+            className="block text-sm font-semibold text-gray-700"
           >
             Address
           </label>
           <input
             type="text"
             {...register("address")}
-            className="mt-1 p-2 w-full rounded-md border"
+            className="mt-1 p-2 w-full rounded-md border focus:border-indigo-500 focus:ring-indigo-500"
             required
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
             htmlFor="dateOfBirth"
-            className="block text-sm font-medium text-gray-600"
+            className="block text-sm font-semibold text-gray-700"
           >
             Date of Birth
           </label>
           <input
             type="text"
             {...register("dateOfBirth")}
-            className="mt-1 p-2 w-full rounded-md border"
+            className="mt-1 p-2 w-full rounded-md border focus:border-indigo-500 focus:ring-indigo-500"
             required
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
             htmlFor="Language"
-            className="block text-sm font-medium text-gray-600"
+            className="block text-sm font-semibold text-gray-700"
           >
             Language
           </label>
           <input
             type="text"
             {...register("language")}
-            className="mt-1 p-2 w-full rounded-md border"
+            className="mt-1 p-2 w-full rounded-md border focus:border-indigo-500 focus:ring-indigo-500"
             required
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
             htmlFor="emergencyContactName"
-            className="block text-sm font-medium text-gray-600"
+            className="block text-sm font-semibold text-gray-700"
           >
             Emergency Contact Name
           </label>
           <input
             type="text"
             {...register("emergencyContactName")}
-            className="mt-1 p-2 w-full rounded-md border"
+            className="mt-1 p-2 w-full rounded-md border focus:border-indigo-500 focus:ring-indigo-500"
             required
           />
         </div>
-        <div className="mb-4">
+        <div>
           <label
             htmlFor="emergencyContactPhone"
-            className="block text-sm font-medium text-gray-600"
+            className="block text-sm font-semibold text-gray-700"
           >
             Emergency Contact Phone
           </label>
           <input
             type="tel"
             {...register("emergencyContactPhone")}
-            className="mt-1 p-2 w-full rounded-md border"
+            className="mt-1 p-2 w-full rounded-md border focus:border-indigo-500 focus:ring-indigo-500"
             required
           />
         </div>
         <button
           type="submit"
-          className="w-full p-2 bg-blue-500 text-white rounded-md"
+          className="w-full p-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition duration-700 ease-in-out"
         >
           Submit
         </button>
